@@ -15,6 +15,8 @@ Shared code for our school's students (https://www.develop4fun.it & https://www.
 All rights reserved. If you want to use it for commercial purposes, it is forbidden to do so.
 
 ## Result
-<img src="https://www.develop4fun.fr/wp-content/uploads/2023/06/zorder1.jpg" alt="Z-order">
-<img src="https://www.develop4fun.fr/wp-content/uploads/2023/06/zorder2.jpg" alt="Z-order">
-<img src="https://www.develop4fun.fr/wp-content/uploads/2023/06/zorder3.jpg" alt="Z-order">
+<img src="https://www.develop4fun.fr/wp-content/uploads/2023/06/zorder1.jpg" alt="Z-order Result">
+Html: 
+<img src="https://www.develop4fun.fr/wp-content/uploads/2023/06/zorder3.jpg" alt="Z-order Html">
+CSS:
+<img src="https://www.develop4fun.fr/wp-content/uploads/2023/06/zorder2.jpg" alt="Z-order CSS">
