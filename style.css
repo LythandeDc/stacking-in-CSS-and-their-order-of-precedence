@@ -1,0 +1,15 @@
+.bloc {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 30px;
+    width: 300px;
+    border: 4px solid #000;
+}
+.bloc-1 {
+    background-color: blueviolet;
+}
+.bloc-2 {
+    margin-top: -20px;
+    margin-left: 50px;
+    background-color: aliceblue;
+}
