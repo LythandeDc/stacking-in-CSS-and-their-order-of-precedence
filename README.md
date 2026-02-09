@@ -37,9 +37,11 @@ Open `index.html` in any modern browser. No build tools needed.
 <img src="https://itamde.com/media/2023/06/zorder1.jpg" alt="Z-order Result">
 
 HTML:
+<br>
 <img src="https://itamde.com/media/2023/06/zorder3.jpg" alt="Z-order Html">
 
 CSS:
+<br>
 <img src="https://itamde.com/media/2023/06/zorder2.jpg" alt="Z-order CSS">
 
 <!-- MARKDOWN LINKS & IMAGES -->
