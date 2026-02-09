@@ -41,8 +41,26 @@ h1 {
 }
 
 .intro {
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   color: #555;
+}
+
+/* ===== Translations Toggle ===== */
+.translations {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.translations summary {
+  cursor: pointer;
+  color: #888;
+  font-size: 0.8rem;
+  width: fit-content;
+}
+
+.translations p {
+  margin: 0.3rem 0;
 }
 
 /* ===== Sections ===== */

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,39 +11,54 @@
     <main>
       <h1>Stacking Context in CSS</h1>
       <p class="intro">
-        In CSS, l'ordine di sovrapposizione degli elementi segue regole precise.
-        Ecco i casi principali che creano o influenzano lo stacking context.
+        In CSS, the stacking order of elements follows specific rules.
+        Here are the main cases that create or affect the stacking context.
       </p>
+      <details class="translations">
+        <summary>FR / IT</summary>
+        <p lang="fr"><strong>FR:</strong> En CSS, l'ordre d'empilement des &eacute;l&eacute;ments suit des r&egrave;gles pr&eacute;cises. Voici les principaux cas qui cr&eacute;ent ou influencent le stacking context.</p>
+        <p lang="it"><strong>IT:</strong> In CSS, l'ordine di sovrapposizione degli elementi segue regole precise. Ecco i casi principali che creano o influenzano lo stacking context.</p>
+      </details>
 
-      <!-- Sezione 1: Ordine del DOM -->
-      <section aria-label="Esempio ordine del DOM">
-        <h2>1. Ordine del DOM</h2>
+      <!-- Section 1: DOM Order -->
+      <section aria-label="DOM order example">
+        <h2>1. DOM Order</h2>
         <p>
-          Senza <code>z-index</code> n&eacute; <code>position</code>, gli elementi si
-          sovrappongono seguendo l'ordine nel codice HTML: l'ultimo nel DOM
-          appare sopra.
+          Without <code>z-index</code> or <code>position</code>, elements
+          overlap following their order in the HTML source: the last in the DOM
+          appears on top.
         </p>
+        <details class="translations">
+          <summary>FR / IT</summary>
+          <p lang="fr"><strong>FR:</strong> Sans <code>z-index</code> ni <code>position</code>, les &eacute;l&eacute;ments se superposent selon leur ordre dans le code HTML : le dernier dans le DOM appara&icirc;t au-dessus.</p>
+          <p lang="it"><strong>IT:</strong> Senza <code>z-index</code> n&eacute; <code>position</code>, gli elementi si sovrappongono seguendo l'ordine nel codice HTML: l'ultimo nel DOM appare sopra.</p>
+        </details>
         <div class="demo">
           <div class="box box--violet">
-            <span class="box__label">Primo nel DOM</span>
+            <span class="box__label">First in DOM</span>
           </div>
           <div class="box box--blue box--overlap">
-            <span class="box__label">Secondo nel DOM (sopra)</span>
+            <span class="box__label">Second in DOM (on top)</span>
           </div>
         </div>
       </section>
 
-      <!-- Sezione 2: z-index con position -->
-      <section aria-label="Esempio z-index con position">
-        <h2>2. z-index con position</h2>
+      <!-- Section 2: z-index with position -->
+      <section aria-label="z-index with position example">
+        <h2>2. z-index with position</h2>
         <p>
-          <code>z-index</code> funziona solo su elementi con
-          <code>position</code> diverso da <code>static</code>. Un valore
-          pi&ugrave; alto porta l'elemento in primo piano.
+          <code>z-index</code> only works on elements with a
+          <code>position</code> other than <code>static</code>. A higher value
+          brings the element to the front.
         </p>
+        <details class="translations">
+          <summary>FR / IT</summary>
+          <p lang="fr"><strong>FR:</strong> <code>z-index</code> ne fonctionne que sur les &eacute;l&eacute;ments avec un <code>position</code> diff&eacute;rent de <code>static</code>. Une valeur plus &eacute;lev&eacute;e place l'&eacute;l&eacute;ment au premier plan.</p>
+          <p lang="it"><strong>IT:</strong> <code>z-index</code> funziona solo su elementi con <code>position</code> diverso da <code>static</code>. Un valore pi&ugrave; alto porta l'elemento in primo piano.</p>
+        </details>
         <div class="demo">
           <div class="box box--violet box--positioned" style="z-index: 2">
-            <span class="box__label">z-index: 2 (sopra)</span>
+            <span class="box__label">z-index: 2 (on top)</span>
           </div>
           <div class="box box--blue box--overlap box--positioned" style="z-index: 1">
             <span class="box__label">z-index: 1</span>
@@ -51,43 +66,53 @@
         </div>
       </section>
 
-      <!-- Sezione 3: Stacking context con opacity -->
-      <section aria-label="Esempio stacking context con opacity">
-        <h2>3. Stacking context con opacity</h2>
+      <!-- Section 3: Stacking context with opacity -->
+      <section aria-label="Stacking context with opacity example">
+        <h2>3. Stacking context with opacity</h2>
         <p>
-          Un elemento con <code>opacity &lt; 1</code> crea un nuovo stacking
-          context. I figli con <code>z-index</code> alto non possono uscire
-          dal contesto del genitore.
+          An element with <code>opacity &lt; 1</code> creates a new stacking
+          context. Children with a high <code>z-index</code> cannot escape
+          their parent's context.
         </p>
+        <details class="translations">
+          <summary>FR / IT</summary>
+          <p lang="fr"><strong>FR:</strong> Un &eacute;l&eacute;ment avec <code>opacity &lt; 1</code> cr&eacute;e un nouveau stacking context. Les enfants avec un <code>z-index</code> &eacute;lev&eacute; ne peuvent pas sortir du contexte du parent.</p>
+          <p lang="it"><strong>IT:</strong> Un elemento con <code>opacity &lt; 1</code> crea un nuovo stacking context. I figli con <code>z-index</code> alto non possono uscire dal contesto del genitore.</p>
+        </details>
         <div class="demo">
           <div class="box box--green box--opacity-ctx">
-            <span class="box__label">opacity: 0.95 (nuovo context)</span>
+            <span class="box__label">opacity: 0.95 (new context)</span>
             <div class="box box--violet box--inner box--positioned" style="z-index: 999">
-              <span class="box__label">z-index: 999 (bloccato)</span>
+              <span class="box__label">z-index: 999 (trapped)</span>
             </div>
           </div>
           <div class="box box--blue box--overlap box--positioned" style="z-index: 1">
-            <span class="box__label">z-index: 1 (sopra il context)</span>
+            <span class="box__label">z-index: 1 (above the context)</span>
           </div>
         </div>
       </section>
 
-      <!-- Sezione 4: Stacking context con transform -->
-      <section aria-label="Esempio stacking context con transform">
-        <h2>4. Stacking context con transform</h2>
+      <!-- Section 4: Stacking context with transform -->
+      <section aria-label="Stacking context with transform example">
+        <h2>4. Stacking context with transform</h2>
         <p>
-          Anche <code>transform</code> (diverso da <code>none</code>) crea un
-          nuovo stacking context, con lo stesso effetto di isolamento.
+          A <code>transform</code> value other than <code>none</code> also
+          creates a new stacking context, with the same isolation effect.
         </p>
+        <details class="translations">
+          <summary>FR / IT</summary>
+          <p lang="fr"><strong>FR:</strong> Une valeur de <code>transform</code> diff&eacute;rente de <code>none</code> cr&eacute;e &eacute;galement un nouveau stacking context, avec le m&ecirc;me effet d'isolation.</p>
+          <p lang="it"><strong>IT:</strong> Anche <code>transform</code> (diverso da <code>none</code>) crea un nuovo stacking context, con lo stesso effetto di isolamento.</p>
+        </details>
         <div class="demo">
           <div class="box box--orange box--transform-ctx">
-            <span class="box__label">transform: translate(0) (nuovo context)</span>
+            <span class="box__label">transform: translate(0) (new context)</span>
             <div class="box box--violet box--inner box--positioned" style="z-index: 999">
-              <span class="box__label">z-index: 999 (bloccato)</span>
+              <span class="box__label">z-index: 999 (trapped)</span>
             </div>
           </div>
           <div class="box box--blue box--overlap box--positioned" style="z-index: 1">
-            <span class="box__label">z-index: 1 (sopra il context)</span>
+            <span class="box__label">z-index: 1 (above the context)</span>
           </div>
         </div>
       </section>
