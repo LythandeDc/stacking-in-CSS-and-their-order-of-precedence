@@ -34,13 +34,13 @@ Open `index.html` in any modern browser. No build tools needed.
 
 ## Result
 
-<img src="https://itamde.com/wp-content/uploads/2023/06/zorder1.jpg" alt="Z-order Result">
+<img src="https://itamde.com/media/2023/06/zorder1.jpg" alt="Z-order Result">
 
 HTML:
-<img src="https://itamde.com/wp-content/uploads/2023/06/zorder3.jpg" alt="Z-order Html">
+<img src="https://itamde.com/media/2023/06/zorder3.jpg" alt="Z-order Html">
 
 CSS:
-<img src="https://itamde.com/wp-content/uploads/2023/06/zorder2.jpg" alt="Z-order CSS">
+<img src="https://itamde.com/media/2023/06/zorder2.jpg" alt="Z-order CSS">
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://itamde.com/assets/images/elements/CONTRIBUTORS.svg?style=for-the-badge
