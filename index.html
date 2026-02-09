@@ -1,14 +1,96 @@
 <!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stacking Context in CSS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<html>
-    <head>
-        <title>Z-order</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="style.css">
-    </head>
+  <body>
+    <main>
+      <h1>Stacking Context in CSS</h1>
+      <p class="intro">
+        In CSS, l'ordine di sovrapposizione degli elementi segue regole precise.
+        Ecco i casi principali che creano o influenzano lo stacking context.
+      </p>
 
-    <body>
-        <div class="bloc bloc-1"></div>
-        <div class="bloc bloc-2"></div>
-    </body>
+      <!-- Sezione 1: Ordine del DOM -->
+      <section aria-label="Esempio ordine del DOM">
+        <h2>1. Ordine del DOM</h2>
+        <p>
+          Senza <code>z-index</code> n&eacute; <code>position</code>, gli elementi si
+          sovrappongono seguendo l'ordine nel codice HTML: l'ultimo nel DOM
+          appare sopra.
+        </p>
+        <div class="demo">
+          <div class="box box--violet">
+            <span class="box__label">Primo nel DOM</span>
+          </div>
+          <div class="box box--blue box--overlap">
+            <span class="box__label">Secondo nel DOM (sopra)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sezione 2: z-index con position -->
+      <section aria-label="Esempio z-index con position">
+        <h2>2. z-index con position</h2>
+        <p>
+          <code>z-index</code> funziona solo su elementi con
+          <code>position</code> diverso da <code>static</code>. Un valore
+          pi&ugrave; alto porta l'elemento in primo piano.
+        </p>
+        <div class="demo">
+          <div class="box box--violet box--positioned" style="z-index: 2">
+            <span class="box__label">z-index: 2 (sopra)</span>
+          </div>
+          <div class="box box--blue box--overlap box--positioned" style="z-index: 1">
+            <span class="box__label">z-index: 1</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sezione 3: Stacking context con opacity -->
+      <section aria-label="Esempio stacking context con opacity">
+        <h2>3. Stacking context con opacity</h2>
+        <p>
+          Un elemento con <code>opacity &lt; 1</code> crea un nuovo stacking
+          context. I figli con <code>z-index</code> alto non possono uscire
+          dal contesto del genitore.
+        </p>
+        <div class="demo">
+          <div class="box box--green box--opacity-ctx">
+            <span class="box__label">opacity: 0.95 (nuovo context)</span>
+            <div class="box box--violet box--inner box--positioned" style="z-index: 999">
+              <span class="box__label">z-index: 999 (bloccato)</span>
+            </div>
+          </div>
+          <div class="box box--blue box--overlap box--positioned" style="z-index: 1">
+            <span class="box__label">z-index: 1 (sopra il context)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sezione 4: Stacking context con transform -->
+      <section aria-label="Esempio stacking context con transform">
+        <h2>4. Stacking context con transform</h2>
+        <p>
+          Anche <code>transform</code> (diverso da <code>none</code>) crea un
+          nuovo stacking context, con lo stesso effetto di isolamento.
+        </p>
+        <div class="demo">
+          <div class="box box--orange box--transform-ctx">
+            <span class="box__label">transform: translate(0) (nuovo context)</span>
+            <div class="box box--violet box--inner box--positioned" style="z-index: 999">
+              <span class="box__label">z-index: 999 (bloccato)</span>
+            </div>
+          </div>
+          <div class="box box--blue box--overlap box--positioned" style="z-index: 1">
+            <span class="box__label">z-index: 1 (sopra il context)</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
